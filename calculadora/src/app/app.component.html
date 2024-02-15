@@ -1,27 +1,92 @@
 
-<input type="text" id="display" [(ngModel)]="display">
-<section>
-  <button (click)="clearDisplay()">c</button>
-  <button></button>
-  <button (click)="appendcharacter('%')">%</button>
-  <button (click)="appendcharacter('/')">/</button>
-  <button (click)="appendcharacter('7')">7</button>
-  <button (click)="appendcharacter('8')">8</button>
-  <button (click)="appendcharacter('9')">9</button>
-  <button (click)="appendcharacter('*')">*</button>
-  <button (click)="appendcharacter('4')">4</button>
-  <button (click)="appendcharacter('5')">5</button>
-  <button (click)="appendcharacter('6')">6</button>
-  <button (click)="appendcharacter('-')">-</button>
-  <button (click)="appendcharacter('1')">1</button>
-  <button (click)="appendcharacter('2')">2</button>
-  <button (click)="appendcharacter('3')">3</button>
-  <button (click)="appendcharacter('+')">+</button>
-  <button (click)="appendcharacter('0')">0</button>
-  <button (click)="appendcharacter('.')">.</button>
-  <button (click)="calculate()">=</button>
-  <button (click)="appendcharacter('')"></button>
-</section>
 
+
+
+<body class="bodycss">
+  <header>
+    <nav>
+      <ul class="nav-right-section">
+       <li><a [href]="gmailUrl">Gmail</a>
+       </li>
+       <li><a href="">Imagenes</a>
+       </li>
+       <li class="menu-icon">
+           <a href=""></a>
+       </li>
+       <li>
+           <a href="">
+               <img src="https://lh3.googleusercontent.com/ogw/AAEL6sg1C42mTktFv-H7X7cHEbXUEvlTRfUgR0zHcCiX=s32-c-mo" alt="" >
+           </a>
+       </li>
+      </ul>
+
+   </nav>
+  </header>
+
+
+
+    <main>
+    <section class="main-logo">
+        <img src="https://1000marcas.net/wp-content/uploads/2020/02/Google-logo.jpg" alt="">
+
+    </section>
+    <section class="main-input">
+        <div class="main-input-container">
+            <span class="search-icon">
+             </span>
+            <input type="text" [(ngModel)]="busqueda">
+            <a class="micro-icon" href=""></a>
+        </div>
+    </section>
+    <section class="main-buttons">
+        <div >
+            <a target="_blank" [href]="url + busqueda"><button >Buscar con Google</button></a>
+
+        </div>
+        <div>
+            <button>Voy a tener suerte</button>
+        </div>
+        <div>
+        <button (click)="getmisChistes()">Diviertete</button>
+        </div>
+
+    </section>
+    <section>
+      <div>
+        <p>{{nuevochiste}} </p>
+      </div>
+    </section>
+    </main>
+    <footer>
+        <ul class="footer-left">
+            <li>
+                <a href="">Publicidad</a>
+            </li>
+            <li>
+                <a href="">Negocios</a>
+            </li>
+            <li>
+                <a href="">Acerca de</a>
+            </li>
+            <li>
+                <a href="">Como funciona la busqueda</a>
+            </li>
+        </ul>
+        <ul class="footer-right">
+            <li>
+                <a href="">Privacidad</a>
+            </li>
+            <li>
+                <a href="">Condiciones</a>
+            </li>
+            <li>
+                <a href="">Preferencias</a>
+            </li>
+        </ul>
+
+
+
+    </footer>
+</body>
 
 
