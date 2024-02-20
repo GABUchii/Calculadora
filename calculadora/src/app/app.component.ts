@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ChistesService } from '../service/chistes.service'
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -19,13 +20,18 @@ constructor(
 ){
 
 }
-url='https://www.google.com/search?q='
-busqueda=""
-gmailUrl='https://accounts.google.com/v3/signin/identifier?continue=http%3A%2F%2Fsupport.google.com%2Fmail%2Fanswer%2F8494%3Fhl%3Des%26co%3DGENIE.Platform%253DDesktop&ec=GAZAdQ&hl=es&passive=true&sjid=13900374299691456950-EU&ifkv=ASKXGp3cTNTD1pDCOIugr7ehDQ1YOriwt2I-7YcZJKpLLrYB2PdcM4c19vQoieY1XEZWMTShS1ZvPA&theme=glif&flowName=GlifWebSignIn&flowEntry=ServiceLogin'
-nuevochiste =''
+url='https://www.google.com/search?q=';
+busqueda="";
+gmailUrl='https://accounts.google.com/v3/signin/identifier?continue=http%3A%2F%2Fsupport.google.com%2Fmail%2Fanswer%2F8494%3Fhl%3Des%26co%3DGENIE.Platform%253DDesktop&ec=GAZAdQ&hl=es&passive=true&sjid=13900374299691456950-EU&ifkv=ASKXGp3cTNTD1pDCOIugr7ehDQ1YOriwt2I-7YcZJKpLLrYB2PdcM4c19vQoieY1XEZWMTShS1ZvPA&theme=glif&flowName=GlifWebSignIn&flowEntry=ServiceLogin';
+nuevochiste ='';
+category ='';
+resultadoBusqueda ='';
+busquedaApi='';
+
 
 ngOnInit(){
   this.getmisChistes();
+  this.obtenerCategorias();
 }
 
 getmisChistes(){
@@ -37,6 +43,30 @@ getmisChistes(){
 
   })
 }
+obtenerCategorias() {
+
+
+  this.ChistesService.obtenerCategory()
+  .subscribe(data =>{
+    console.log(data)
+    this.category = data.value;
+  })
 
 }
+
+buscarChiste(){
+  if (this.busqueda.trim()!==''){
+    this.ChistesService.buscarChistes(this.busquedaApi)
+    .subscribe( data =>{
+      console.log (data);
+    })
+
+  }
+}
+
+}
+
+
+
+
 

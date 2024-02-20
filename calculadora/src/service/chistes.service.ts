@@ -8,7 +8,10 @@ import { Observable } from 'rxjs';
 })
 export class ChistesService {
   apiUrl = enviroment.API_URL;
-  randomPath = 'random'
+  randomPath = 'random';
+
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -17,5 +20,15 @@ export class ChistesService {
 
 
   }
+
+  obtenerCategory():Observable<any>{
+    const url = `${this.apiUrl}/categories`;
+    return this.http.get<string[]>(url);
+  }
+
+buscarChistes(query:string): Observable<any>{
+  const url = `${this.apiUrl}/search?query=${query}`;
+ return this.http.get<any>(url);
+}
 
 }
